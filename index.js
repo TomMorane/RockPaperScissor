@@ -2,7 +2,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-  let computerRandomChoices = ["rock", "paper", "scissor"];
+  let computerRandomChoices = ['rock', 'paper', 'scissor'];
   let randomPick = Math.floor(Math.random() * computerRandomChoices.length);
 
   return computerRandomChoices[randomPick];
@@ -10,58 +10,58 @@ function getComputerChoice() {
 
 const playRound = (playerSelection, computerSelection) => {
   if (
-    playerSelection === "rock".toLowerCase() &&
-    computerSelection === "rock"
+    playerSelection === 'rock'.toLowerCase() &&
+    computerSelection === 'rock'
   ) {
-    return "Tied";
+    return 'Tied';
   } else if (
-    playerSelection === "rock".toLowerCase() &&
-    computerSelection === "scissor"
+    playerSelection === 'rock'.toLowerCase() &&
+    computerSelection === 'scissor'
   ) {
     playerScore++;
-    return "you win, rock beats scissor";
+    return 'you win, rock beats scissor';
   } else if (
-    playerSelection === "rock".toLowerCase() &&
-    computerSelection === "paper"
+    playerSelection === 'rock'.toLowerCase() &&
+    computerSelection === 'paper'
   ) {
     computerScore++;
-    return "you loose, paper beats rock";
+    return 'you loose, paper beats rock';
   } else if (
-    playerSelection === "scissor".toLowerCase() &&
-    computerSelection === "scissor"
+    playerSelection === 'scissor'.toLowerCase() &&
+    computerSelection === 'scissor'
   ) {
-    return "Tied";
+    return 'Tied';
   } else if (
-    playerSelection === "scissor".toLowerCase() &&
-    computerSelection === "paper"
+    playerSelection === 'scissor'.toLowerCase() &&
+    computerSelection === 'paper'
   ) {
     playerScore++;
-    return "you win, scissor beats paper";
+    return 'you win, scissor beats paper';
   } else if (
-    playerSelection === "scissor".toLowerCase() &&
-    computerSelection === "rock"
+    playerSelection === 'scissor'.toLowerCase() &&
+    computerSelection === 'rock'
   ) {
     computerScore++;
-    return "you loose, rock beats scissor";
+    return 'you loose, rock beats scissor';
   } else if (
-    playerSelection === "paper".toLowerCase() &&
-    computerSelection === "paper"
+    playerSelection === 'paper'.toLowerCase() &&
+    computerSelection === 'paper'
   ) {
-    return "Tied";
+    return 'Tied';
   } else if (
-    playerSelection === "paper".toLowerCase() &&
-    computerSelection === "rock"
+    playerSelection === 'paper'.toLowerCase() &&
+    computerSelection === 'rock'
   ) {
     playerScore++;
-    return "you win, paper beats rock";
+    return 'you win, paper beats rock';
   } else if (
-    playerSelection === "paper".toLowerCase() &&
-    computerSelection === "scissor"
+    playerSelection === 'paper'.toLowerCase() &&
+    computerSelection === 'scissor'
   ) {
     computerScore++;
-    return "you loose, scissor beats paper";
-  } else if (playerSelection != "paper" || "scissor" || "rock") {
-    return "écris bien zebi";
+    return 'you loose, scissor beats paper';
+  } else if (playerSelection != 'paper' || 'scissor' || 'rock') {
+    return 'écris bien zebi';
   }
 };
 
@@ -70,8 +70,8 @@ const playRound = (playerSelection, computerSelection) => {
 const game = () => {
   for (let i = 0; i < 5; i++) {
     const playerSelection = prompt(
-      "Choose",
-      "rock / paper / scissor?"
+      'Choose',
+      'rock / paper / scissor?'
     ).toLowerCase();
     const computerSelection = getComputerChoice();
 
@@ -81,11 +81,12 @@ const game = () => {
   if (playerScore > computerScore) {
     return "You won, you'll get bitches soon";
   } else if (playerScore < computerScore) {
-    return "You lost Dumbass";
+    return 'You lost Dumbass';
   } else {
-    return "You tied, too a chier";
-  
+    return 'You tied, too a chier';
+  }
 };
+
 console.log(game());
 
 /* 
