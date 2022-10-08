@@ -84,7 +84,7 @@ const game = () => {
     return "You lost Dumbass";
   } else {
     return "You tied, too a chier";
-  }
+  
 };
 console.log(game());
 
