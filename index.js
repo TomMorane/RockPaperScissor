@@ -1,6 +1,11 @@
 let playerScore = 0;
 let computerScore = 0;
 
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorButton = document.querySelector('#scissor');
+const outcome = document.querySelector('.outcome');
+
 function getComputerChoice() {
   let computerRandomChoices = ['rock', 'paper', 'scissor'];
   let randomPick = Math.floor(Math.random() * computerRandomChoices.length);
@@ -9,83 +14,102 @@ function getComputerChoice() {
 }
 
 const playRound = (playerSelection, computerSelection) => {
+  console.log('1', playerSelection, '2', computerSelection);
   if (
     playerSelection === 'rock'.toLowerCase() &&
     computerSelection === 'rock'
   ) {
-    return 'Tied';
+    const p = document.createElement('p');
+    p.innerText = 'Tied';
   } else if (
     playerSelection === 'rock'.toLowerCase() &&
     computerSelection === 'scissor'
   ) {
     playerScore++;
-    return 'you win, rock beats scissor';
+    p.innerText = 'you win, rock beats scissor';
   } else if (
     playerSelection === 'rock'.toLowerCase() &&
     computerSelection === 'paper'
   ) {
     computerScore++;
-    return 'you loose, paper beats rock';
+    p.innerText = 'you loose, paper beats rock';
   } else if (
     playerSelection === 'scissor'.toLowerCase() &&
     computerSelection === 'scissor'
   ) {
-    return 'Tied';
+    p.innerText = 'Tied';
   } else if (
     playerSelection === 'scissor'.toLowerCase() &&
     computerSelection === 'paper'
   ) {
     playerScore++;
-    return 'you win, scissor beats paper';
+    p.innerText = 'you win, scissor beats paper';
   } else if (
     playerSelection === 'scissor'.toLowerCase() &&
     computerSelection === 'rock'
   ) {
     computerScore++;
-    return 'you loose, rock beats scissor';
+    p.innerText = 'you loose, rock beats scissor';
   } else if (
     playerSelection === 'paper'.toLowerCase() &&
     computerSelection === 'paper'
   ) {
-    return 'Tied';
+    rp.innerText = 'Tied';
   } else if (
     playerSelection === 'paper'.toLowerCase() &&
     computerSelection === 'rock'
   ) {
     playerScore++;
-    return 'you win, paper beats rock';
+    p.innerText = 'you win, paper beats rock';
   } else if (
     playerSelection === 'paper'.toLowerCase() &&
     computerSelection === 'scissor'
   ) {
     computerScore++;
-    return 'you loose, scissor beats paper';
+    p.innerText = 'you loose, scissor beats paper';
   } else if (playerSelection != 'paper' || 'scissor' || 'rock') {
-    return 'écris bien zebi';
+    p.innerText = 'écris bien zebi';
   }
 };
 
-/* const playerSelection = "paper".toLowerCase(); */
+rockButton.addEventListener('click', () => {
+  const computerSelection = getComputerChoice();
+  const playerSelection = 'rock';
+  playRound(playerSelection, computerSelection);
+});
+
+paperButton.addEventListener('click', () => {
+  const computerSelection = getComputerChoice();
+  const playerSelection = 'paper';
+  playRound(playerSelection, computerSelection);
+});
+
+scissorButton.addEventListener('click', () => {
+  const computerSelection = getComputerChoice();
+  const playerSelection = 'scissor';
+  playRound(playerSelection, computerSelection);
+});
+
+// const playerSelection = 'paper'.toLowerCase();
 
 const game = () => {
-  for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt(
-      'Choose',
-      'rock / paper / scissor?'
-    ).toLowerCase();
-    const computerSelection = getComputerChoice();
-
-    console.log(playRound(playerSelection, computerSelection));
-  }
-
-  if (playerScore > computerScore) {
-    return "You won, you'll get bitches soon";
-  } else if (playerScore < computerScore) {
-    return 'You lost Dumbass';
-  } else {
-    return 'You tied, too a chier';
-  }
+  // for (let i = 0; i < 5; i++) {
+  //   const playerSelection = prompt(
+  //     'Choose',
+  //     'rock / paper / scissor?'
+  //   ).toLowerCase();
+  //   const computerSelection = getComputerChoice();
+  //   console.log(playRound(playerSelection, computerSelection));
 };
+
+//   if (playerScore > computerScore) {
+//     return "You won, you'll get bitches soon";
+//   } else if (playerScore < computerScore) {
+//     return 'You lost Dumbass';
+//   } else {
+//     return 'You tied, too a chier';
+//   }
+// };
 
 console.log(game());
 
